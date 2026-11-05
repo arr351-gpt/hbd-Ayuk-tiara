@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Happy Birthday, Ayuk! 🎂💖</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pastel-pink: #ffb6c1;
+            --soft-pink: #ffe4e1;
+            --cream: #fff8f0;
+            --white: #ffffff;
+            --gold: #ffd700;
+            --deep-rose: #b76e79;
+            --text-dark: #5a3e4b;
+            --text-soft: #8b5a6b;
+            --shadow-soft: 0 10px 30px rgba(183, 110, 121, 0.12);
+            --shadow-medium: 0 15px 40px rgba(183, 110, 121, 0.2);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(160deg, #fff5f7 0%, #ffe4e1 40%, #fff8f0 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        /* ===== FLOATING DECORATIONS ===== */
+        .floating-deco {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.55;
+            will-change: transform;
+        }
+
+        .balloon {
+            font-size: 2.4rem;
+            animation: floatBalloon 14s infinite linear;
+        }
+
+        @keyframes floatBalloon {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-20vh) rotate(15deg); opacity: 0; }
+        }
+
+        .sparkle-star {
+            font-size: 1.2rem;
+            color: var(--gold);
+            animation: twinkleStar 3s infinite alternate;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        }
+
+        @keyframes twinkleStar {
+            0% { opacity: 0.15; transform: scale(0.7); }
+            100% { opacity: 0.9; transform: scale(1.2); }
+        }
+
+        /* ===== CONFETTI CANVAS ===== */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+        }
+
+        /* ===== GENERAL SECTION ===== */
+        section {
+            position: relative;
+            z-index: 2;
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.2rem;
+            color: var(--deep-rose);
+            text-align: center;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.25);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-soft);
+            font-size: 1rem;
+            margin-bottom: 45px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== HERO / PEMBUKA ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px 60px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.8rem;
+            color: var(--deep-rose);
+            text-shadow: 2px 2px 15px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 182, 193, 0.4);
+            margin-bottom: 10px;
+            line-height: 1.2;
+            animation: heroGlow 3s infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { text-shadow: 2px 2px 15px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 182, 193, 0.4); }
+            100% { text-shadow: 2px 2px 25px rgba(255, 215, 0, 0.7), 0 0 50px rgba(255, 182, 193, 0.7); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-soft);
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* ===== CAKE ===== */
+        .cake-wrapper {
+            margin: 20px auto 30px;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .cake-wrapper:hover {
+            transform: scale(1.04) translateY(-5px);
+        }
+
+        .cake-wrapper.clicked {
+            animation: cakePop 0.6s ease;
+        }
+
+        @keyframes cakePop {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.12) rotate(-2deg); }
+            70% { transform: scale(0.96) rotate(2deg); }
+            100% { transform: scale(1); }
+        }
+
+        .cake {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            filter: drop-shadow(0 15px 25px rgba(183, 110, 121, 0.25));
+        }
+
+        /* Candle */
+        .candle {
+            position: absolute;
+            top: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 65px;
+            background: linear-gradient(90deg, #f7d794, #f8c291, #f7d794);
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .candle::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 10px;
+            background: #e8a87c;
+            border-radius: 50%;
+        }
+
+        .flame {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 32px;
+            background: radial-gradient(circle at 50% 80%, #ffdd59, #ff9f43, #ff6b6b);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 0.7s infinite alternate;
+            box-shadow: 0 0 25px #ff9f43, 0 0 50px #ffdd59, 0 0 80px rgba(255, 159, 67, 0.5);
+            transition: opacity 0.4s, box-shadow 0.4s;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1) rotate(-3deg); opacity: 1; }
+            100% { transform: translateX(-50%) scale(1.12) rotate(3deg); opacity: 0.92; }
+        }
+
+        .flame.off {
+            opacity: 0;
+            box-shadow: none;
+            animation: none;
+        }
+
+        /* Cake Layers */
+        .layer {
+            position: absolute;
+            border-radius: 20px;
+            box-shadow: inset 0 -8px 15px rgba(255, 255, 255, 0.5), 0 5px 15px rgba(183, 110, 121, 0.15);
+        }
+
+        .layer-bottom {
+            bottom: 0;
+            left: 20px;
+            width: 260px;
+            height: 110px;
+            background: linear-gradient(135deg, #ffe4e1, #ffb6c1 70%);
+            border: 4px solid #fff;
+            border-radius: 30px 30px 20px 20px;
+            z-index: 1;
+        }
+
+        .layer-middle {
+            bottom: 95px;
+            left: 42px;
+            width: 216px;
+            height: 85px;
+            background: linear-gradient(135deg, #fff0f5, #ffd1dc 70%);
+            border: 4px solid #fff;
+            border-radius: 25px 25px 15px 15px;
+            z-index: 2;
+        }
+
+        .layer-top {
+            bottom: 165px;
+            left: 62px;
+            width: 176px;
+            height: 70px;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0 70%);
+            border: 4px solid #fff;
+            border-radius: 20px 20px 12px 12px;
+            z-index: 3;
+        }
+
+        /* Cake Decorations */
+        .cherry {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            z-index: 15;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.15));
+            animation: bobble 2s ease-in-out infinite;
+        }
+
+        @keyframes bobble {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        .sprinkles-top {
+            position: absolute;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1rem;
+            color: #ff6b81;
+            letter-spacing: 10px;
+            z-index: 6;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+
+        .cake-text {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.6rem;
+            color: #fff;
+            text-shadow: 1px 1px 4px rgba(183, 110, 121, 0.6);
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffb6c1, #ff8da1);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(255, 143, 163, 0.45);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 14px 35px rgba(255, 143, 163, 0.6);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #ffd700, #ffb347);
+            color: #5a3e4b;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            font-weight: 700;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 14px 35px rgba(255, 215, 0, 0.55);
+        }
+
+        .btn-gold:active {
+            transform: scale(0.97);
+        }
+
+        /* ===== HERO SURPRISE MESSAGE ===== */
+        .surprise-message {
+            max-width: 650px;
+            margin: 25px auto 0;
+            padding: 0 20px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .surprise-message.show {
+            opacity: 1;
+            max-height: 600px;
+            padding: 25px 20px;
+        }
+
+        .surprise-message-inner {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 30px 25px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .surprise-message p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            line-height: 1.9;
+            margin-bottom: 12px;
+        }
+
+        .surprise-message p:last-child {
+            margin-bottom: 0;
+        }
+
+        .surprise-message .emoji-line {
+            font-size: 1.4rem;
+            letter-spacing: 6px;
+            margin-top: 10px;
+        }
+
+        /* ===== GALERI FOTO ===== */
+        .gallery {
+            padding: 80px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .photo-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 15px 15px 18px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+            transform: translateY(40px);
+            cursor: pointer;
+            position: relative;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+        }
+
+        .photo-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .photo-card:hover {
+            transform: translateY(-8px) rotate(-1deg);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .photo-card:nth-child(even):hover {
+            transform: translateY(-8px) rotate(1deg);
+        }
+
+        .photo-frame {
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: 14px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .photo-card:hover .photo-frame img {
+            transform: scale(1.08);
+        }
+
+        .photo-frame .placeholder {
+            font-size: 3rem;
+            color: var(--pastel-pink);
+            opacity: 0.6;
+        }
+
+        .photo-caption {
+            text-align: center;
+            margin-top: 14px;
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            font-weight: 500;
+            font-style: italic;
+            padding: 0 5px;
+        }
+
+        .photo-caption i {
+            color: var(--pastel-pink);
+            margin-right: 4px;
+        }
+
+        /* Photo Modal */
+        .photo-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(90, 62, 75, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            padding: 20px;
+        }
+
+        .photo-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .photo-modal-content {
+            max-width: 90%;
+            max-height: 85%;
+            position: relative;
+            transform: scale(0.85);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .photo-modal.active .photo-modal-content {
+            transform: scale(1);
+        }
+
+        .photo-modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .photo-modal-caption {
+            text-align: center;
+            color: #fff;
+            margin-top: 18px;
+            font-size: 1.1rem;
+            font-style: italic;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            font-size: 1.8rem;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(90deg);
+        }
+
+        /* ===== MUSIC PLAYER ===== */
+        .music-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .music-player {
+            max-width: 480px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 35px 30px 30px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .music-player::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.06) 0%, transparent 60%);
+            animation: rotateGlow 15s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .album-cover {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffb6c1, #ffd700, #ffe4e1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 12px 35px rgba(255, 143, 163, 0.4);
+            position: relative;
+            transition: transform 0.4s ease;
+            animation: coverPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes coverPulse {
+            0%, 100% { box-shadow: 0 12px 35px rgba(255, 143, 163, 0.4); }
+            50% { box-shadow: 0 15px 50px rgba(255, 215, 0, 0.5); }
+        }
+
+        .album-cover.playing {
+            animation: coverSpin 8s linear infinite;
+        }
+
+        @keyframes coverSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .album-cover i {
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            font-size: 3.5rem;
+        }
+
+        .song-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--deep-rose);
+            margin-bottom: 4px;
+        }
+
+        .song-artist {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            margin-bottom: 22px;
+            font-weight: 400;
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .player-btn {
+            background: linear-gradient(135deg, #ffb6c1, #ff8da1);
+            border: none;
+            color: #fff;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 6px 20px rgba(255, 143, 163, 0.4);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .player-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 28px rgba(255, 143, 163, 0.6);
+        }
+
+        .player-btn:active {
+            transform: scale(0.95);
+        }
+
+        .player-btn.small {
+            width: 42px;
+            height: 42px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--deep-rose);
+            box-shadow: 0 4px 15px rgba(183, 110, 121, 0.15);
+        }
+
+        .player-btn.small:hover {
+            background: #fff;
+            box-shadow: 0 6px 20px rgba(183, 110, 121, 0.25);
+        }
+
+        /* Volume Slider */
+        .volume-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .volume-control i {
+            color: var(--deep-rose);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .volume-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 120px;
+            height: 5px;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #ffb6c1, #ffd700);
+            outline: none;
+            cursor: pointer;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(183, 110, 121, 0.4);
+            cursor: pointer;
+            border: 2px solid #ffb6c1;
+        }
+
+        .volume-slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(183, 110, 121, 0.4);
+            cursor: pointer;
+            border: 2px solid #ffb6c1;
+        }
+
+        /* Visualizer */
+        .visualizer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 4px;
+            height: 40px;
+            margin-top: 18px;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .visualizer.active {
+            opacity: 1;
+        }
+
+        .visualizer .bar {
+            width: 5px;
+            background: linear-gradient(to top, #ffb6c1, #ffd700);
+            border-radius: 3px;
+            height: 6px;
+            transition: height 0.1s ease;
+            min-height: 4px;
+        }
+
+        /* File Input */
+        .file-upload-wrapper {
+            margin-top: 22px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .file-upload-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1.5px dashed rgba(183, 110, 121, 0.4);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--text-soft);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .file-upload-label:hover {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: var(--pastel-pink);
+            color: var(--deep-rose);
+        }
+
+        .file-upload-label i {
+            color: var(--pastel-pink);
+            font-size: 1rem;
+        }
+
+        #audioFileInput {
+            display: none;
+        }
+
+        /* ===== UCAPAN & HARAPAN ===== */
+        .wishes-section {
+            padding: 80px 20px;
+        }
+
+        .wish-box {
+            max-width: 780px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 40px;
+            padding: 50px 40px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wish-box::before {
+            content: '❝';
+            position: absolute;
+            top: 10px;
+            left: 25px;
+            font-size: 5rem;
+            color: rgba(255, 182, 193, 0.25);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .wish-box::after {
+            content: '❞';
+            position: absolute;
+            bottom: -10px;
+            right: 25px;
+            font-size: 5rem;
+            color: rgba(255, 182, 193, 0.25);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .wish-text {
+            font-size: 1.08rem;
+            line-height: 2.1;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 1;
+            text-align: justify;
+        }
+
+        .wish-text p {
+            margin-bottom: 18px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .wish-text p.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .wish-signature {
+            text-align: right;
+            margin-top: 30px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: var(--deep-rose);
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s ease 0.5s;
+        }
+
+        .wish-signature.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== PENUTUP ===== */
+        .closing-section {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .closing-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: var(--deep-rose);
+            text-shadow: 3px 3px 20px rgba(255, 215, 0, 0.4);
+            margin-bottom: 20px;
+            line-height: 1.25;
+            animation: closingGlow 3s infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes closingGlow {
+            0% { text-shadow: 3px 3px 20px rgba(255, 215, 0, 0.4); }
+            100% { text-shadow: 3px 3px 35px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 182, 193, 0.6); }
+        }
+
+        .closing-message {
+            font-size: 1.15rem;
+            color: var(--text-soft);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .fireworks-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .firework-heart {
+            position: absolute;
+            font-size: 1.8rem;
+            animation: floatHeart 3s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes floatHeart {
+            0% { opacity: 1; transform: translateY(0) scale(0.5); }
+            50% { opacity: 1; transform: translateY(-80px) scale(1.1); }
+            100% { opacity: 0; transform: translateY(-160px) scale(0.8); }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 40px 20px 30px;
+            color: var(--text-soft);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        footer .heart-icon {
+            color: #ff8da1;
+            animation: heartBeat 1.5s ease-in-out infinite;
+            display: inline-block;
+            margin: 0 4px;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.25); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+        }
+
+        /* ===== SCROLL REVEAL UTILITY ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.6rem; }
+            .cake { width: 230px; height: 230px; }
+            .layer-bottom { width: 200px; height: 85px; left: 15px; }
+            .layer-middle { width: 166px; height: 66px; left: 32px; bottom: 73px; }
+            .layer-top { width: 135px; height: 55px; left: 48px; bottom: 128px; }
+            .candle { top: -52px; height: 52px; width: 14px; }
+            .flame { width: 17px; height: 27px; top: -26px; }
+            .cake-text { font-size: 1.2rem; bottom: 32px; }
+            .cherry { font-size: 1.5rem; }
+            .section-title { font-size: 2.5rem; }
+            .closing-title { font-size: 2.8rem; }
+            .wish-box { padding: 35px 25px; }
+            .wish-text { font-size: 1rem; }
+            .wish-signature { font-size: 1.7rem; }
+            .music-player { padding: 28px 20px 25px; }
+            .album-cover { width: 150px; height: 150px; font-size: 3rem; }
+            .album-cover i { font-size: 2.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            section { padding: 60px 15px; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-subtitle { font-size: 0.9rem; }
+            .cake { width: 190px; height: 190px; }
+            .layer-bottom { width: 166px; height: 70px; left: 12px; }
+            .layer-middle { width: 138px; height: 55px; left: 26px; bottom: 60px; }
+            .layer-top { width: 112px; height: 46px; left: 39px; bottom: 106px; }
+            .candle { top: -45px; height: 44px; width: 12px; }
+            .flame { width: 14px; height: 22px; top: -21px; }
+            .cake-text { font-size: 1rem; bottom: 26px; }
+            .cherry { font-size: 1.2rem; }
+            .sprinkles-top { font-size: 0.8rem; letter-spacing: 6px; bottom: 16px; }
+            .section-title { font-size: 2rem; }
+            .closing-title { font-size: 2.2rem; }
+            .btn { padding: 13px 30px; font-size: 0.95rem; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .photo-card { padding: 10px 10px 12px; }
+            .photo-caption { font-size: 0.8rem; }
+            .wish-box { padding: 30px 18px; border-radius: 28px; }
+            .wish-text { font-size: 0.95rem; line-height: 1.95; }
+            .wish-signature { font-size: 1.5rem; }
+            .music-player { padding: 25px 15px 20px; }
+            .album-cover { width: 130px; height: 130px; }
+            .album-cover i { font-size: 2.3rem; }
+            .song-title { font-size: 1.25rem; }
+            .player-controls { gap: 14px; }
+            .player-btn { width: 48px; height: 48px; font-size: 1.1rem; }
+            .player-btn.small { width: 38px; height: 38px; font-size: 0.9rem; }
+            .closing-message { font-size: 1rem; }
+            .photo-modal-content img { max-height: 70vh; }
+        }
+
+        @media (max-width: 360px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.85rem; }
+            .closing-title { font-size: 1.9rem; }
+        }
+
+        /* ===== ACCESSIBILITY: Reduced Motion ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== CONFETTI CANVAS ===== -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- ===== FLOATING BALLOONS & STARS (via JS) ===== -->
+    <div id="floating-container"></div>
+
+    <!-- ==================== 1. HERO SECTION ==================== -->
+    <section class="hero" id="hero">
+        <h1>Happy Birthday,<br>My Beloved Ayuk!</h1>
+        <p class="hero-subtitle">— Sebuah hadiah kecil penuh cinta —</p>
+
+        <!-- Kue Interaktif -->
+        <div class="cake-wrapper" id="cakeWrapper" role="button" tabindex="0" aria-label="Klik kue untuk kejutan">
+            <div class="cake">
+                <div class="candle">
+                    <div class="flame" id="flame"></div>
+                </div>
+                <div class="layer layer-bottom"></div>
+                <div class="layer layer-middle"></div>
+                <div class="layer layer-top"></div>
+                <div class="cherry">🍒</div>
+                <div class="sprinkles-top">✦ ✦ ✦ ✦ ✦</div>
+                <div class="cake-text">For Ayuk</div>
+            </div>
+        </div>
+
+        <!-- Pesan Kejutan (muncul setelah klik kue) -->
+        <div class="surprise-message" id="surpriseMessage">
+            <div class="surprise-message-inner">
+                <p><strong>Selamat Ulang Tahun, Ayuk! 🎂💖</strong></p>
+                <p>Di hari yang spesial ini, aku ingin kamu tahu betapa berharganya dirimu. Terima kasih sudah menjadi kakak terbaik, yang selalu ada, yang selalu sabar, dan yang selalu menginspirasi.</p>
+                <p>Semoga setiap gajimu semakin banyak agar bisa membeli Adidas zero ukuran 42🤗 ke depan dipenuhi dengan kebahagiaan, kesehatan, dan keberkahan.serta senyum manismu tak pernah pudar.</p>
+                <p class="emoji-line">🌸 💐 ✨ 🎀 💖</p>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" id="openSurpriseBtn" style="margin-top: 30px;">
+            <i class="fas fa-gift"></i>&nbsp; Buka Kejutan
+        </button>
+    </section>
+
+    <!-- ==================== 2. GALERI FOTO ==================== -->
+    <section class="gallery container" id="gallery">
+        <h2 class="section-title reveal">Kenangan Manis Kita</h2>
+        <p class="section-subtitle reveal">Setiap momen bersamamu adalah hadiah terindah</p>
+
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- 
+                ============================================================
+                CARA MENGGANTI FOTO:
+                1. Ganti src="..." dengan URL atau path foto kamu sendiri.
+                2. Ganti caption di dalam <div class="photo-caption">
+                3. Untuk menambah foto, duplikasi salah satu blok <div class="photo-card">
+                ============================================================
+            -->
+            <div class="photo-card" data-caption="Momen foto seumur hidup 1x💕">
+                <div class="photo-frame">
+                    <img src="https://i.supaimg.com/3473ffef-70c9-4f1f-86f2-7139e85484f1/9518485e-ba56-432d-b91e-fdf4f250eb3e.jpg" alt="Kenangan bersama Ayuk" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'placeholder\'>🌸</span>';">
+                </div>
+                <div class="photo-caption"><i class="fas fa-heart"></i> Momen foto seumur hidup 1x</div>
+            </div>
+
+            <div class="photo-card" data-caption="cantik ndoo 🎀">
+                <div class="photo-frame">
+                    <img src="https://i.supaimg.com/3473ffef-70c9-4f1f-86f2-7139e85484f1/45429f42-5278-4358-9602-d01d93296148.jpg" alt="Kenangan bersama Ayuk" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'placeholder\'>🎀</span>';">
+                </div>
+                <div class="photo-caption"><i class="fas fa-heart"></i> cantikk ndoo</div>
+            </div>
+
+            <div class="photo-card" data-caption="gelokk alapp uuu 💖">
+                <div class="photo-frame">
+                    <img src="https://i.supaimg.com/3473ffef-70c9-4f1f-86f2-7139e85484f1/7dadc700-d9ad-4c6a-bcd2-331edfeea128.jpg" alt="Kenangan bersama Ayuk" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'placeholder\'>💖</span>';">
+                </div>
+                <div class="photo-caption"><i class="fas fa-heart"></i> gelokk alapp uuu</div>
+            </div>
+
+            <div class="photo-card" data-caption="hadiah terbaikk 🌸">
+                <div class="photo-frame">
+                    <img src="https://i.supaimg.com/3473ffef-70c9-4f1f-86f2-7139e85484f1/fa52c3d4-67d9-4fd0-963e-ff3a15eb2277.jpg" alt="Kenangan bersama Ayuk" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'placeholder\'>🌸</span>';">
+                </div>
+                <div class="photo-caption"><i class="fas fa-heart"></i> hadiah terbaikk</div>
+            </div>
+
+            <div class="photo-card" data-caption="Senyummu selalu bikin dunia lebih cerah ☀️">
+                <div class="photo-frame">
+                    <img src="https://i.supaimg.com/3473ffef-70c9-4f1f-86f2-7139e85484f1/43148b01-0af8-425b-8d63-5e0a5d692b57.jpg" alt="Kenangan bersama Ayuk" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'placeholder\'>☀️</span>';">
+                </div>
+                <div class="photo-caption"><i class="fas fa-heart"></i> Senyummu selalu bikin dunia lebih cerah</div>
+            </div>
+
+            <div class="photo-card" data-caption="Bonusss 💐">
+                <div class="photo-frame">
+                    <img src="https://i.supaimg.com/3473ffef-70c9-4f1f-86f2-7139e85484f1/bbc2be34-6682-47a4-bc3a-10265852471b.jpg" alt="Kenangan bersama Ayuk" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'placeholder\'>💐</span>';">
+                </div>
+                <div class="photo-caption"><i class="fas fa-heart"></i> Bonusss</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. MUSIK ==================== -->
+    <section class="music-section container" id="music">
+        <h2 class="section-title reveal">Lagu untuk Ayuk</h2>
+        <p class="section-subtitle reveal">Golden Hour — spesial untukmu 🎶</p>
+
+        <div class="music-player reveal">
+            <div class="album-cover" id="albumCover">
+                <i class="fas fa-music"></i>
+            </div>
+
+            <div class="song-title">Golden Hour</div>
+            <div class="song-artist">JVKE</div>
+
+            <div class="player-controls">
+                <button class="player-btn small" id="muteBtn" aria-label="Bisukan">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <button class="player-btn" id="playBtn" aria-label="Putar lagu">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="player-btn small" id="resetBtn" aria-label="Ulangi lagu">
+                    <i class="fas fa-redo-alt"></i>
+                </button>
+            </div>
+
+            <div class="volume-control">
+                <i class="fas fa-volume-down"></i>
+                <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70" aria-label="Volume">
+                <i class="fas fa-volume-up"></i>
+            </div>
+
+            <!-- Visualizer -->
+            <div class="visualizer" id="visualizer">
+                <!-- Bars generated by JS -->
+            </div>
+
+            <!-- File Upload -->
+            <div class="file-upload-wrapper">
+                <label for="audioFileInput" class="file-upload-label">
+                    <i class="fas fa-folder-open"></i> Pilih file MP3 sendiri
+                </label>
+                <input type="file" id="audioFileInput" accept="audio/mpeg,audio/mp3,audio/wav,audio/ogg">
+            </div>
+        </div>
+
+        <!-- Audio Element (source default — bisa diganti dengan file MP3 lokal) -->
+        <!-- 
+            ============================================================
+            CARA MENGGANTI LAGU:
+            Ganti src="..." dengan URL atau path file MP3 kamu sendiri.
+            Atau gunakan tombol "Pilih file MP3 sendiri" di atas.
+            ============================================================
+        -->
+        <audio id="audioPlayer" loop preload="auto" crossorigin="anonymous">
+    <source src="https://files.catbox.moe/oluc9b.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung elemen audio.
+</audio>
+    </section>
+
+    <!-- ==================== 4. UCAPAN & HARAPAN ==================== -->
+    <section class="wishes-section container" id="wishes">
+        <h2 class="section-title reveal">Ucapan & Harapan</h2>
+        <p class="section-subtitle reveal">Untuk kakak perempuanku tercinta</p>
+
+        <div class="wish-box reveal">
+            <div class="wish-text" id="wishText">
+                <p>
+                    Ayuk, terima kasih sudah menjadi kakak yang luar biasa. Terima kasih untuk setiap nasihat, 
+                    setiap dukungan, dan setiap kepedulian yang tak pernah putus. Kamu adalah panutan, penyemangat, 
+                    dan tempat pulang yang paling nyaman.
+                </p>
+                <p>
+                    Di usia baru ini, aku berdoa semoga Ayuk selalu diberikan kesehatan yang prima, rezeki yang 
+                    berkah, dan kebahagiaan yang tak bertepi. Semoga setiap langkah Ayuk dimudahkan, setiap 
+                    usaha membuahkan hasil, dan setiap doa dikabulkan, aminn.
+                </p>
+                <p>
+                    Teruslah bersinar, Ayuk. Teruslah menjadi dirimu yang hangat, kuat, dan penuh kasih. 
+                    Jangan pernah ragu untuk bermimpi besar, karena kamu pantas mendapatkan semua hal baik 
+                    di dunia ini. Aku akan selalu ada di sini, mendukungmu dari belakang.
+                </p>
+                <p>
+                    Selamat ulang tahun, Ayuk. Semoga tahun ini menjadi tahun terbaikmu — penuh tawa, cinta, 
+                    dan kejutan-kejutan indah. anjayy 💖
+                </p>
+            </div>
+            <div class="wish-signature" id="wishSignature">With love, Adikmu hehe 💕</div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. PENUTUP ==================== -->
+    <section class="closing-section" id="closing">
+        <div class="fireworks-container" id="fireworksContainer"></div>
+        <h2 class="closing-title">Once Again,<br>Happy Birthday, Ayuk!</h2>
+        <p class="closing-message">
+            Semoga hari ini dan seterusnya dipenuhi cinta, tawa, dan keajaiban. <br>
+            maaf belom bisa ngasih kue blom ktk duet next time lebihh wow lagi hadiahnya. 🌸✨
+        </p>
+        <button class="btn btn-gold" id="replayBtn">
+            <i class="fas fa-star"></i>&nbsp; Putar Kejutan Lagi
+        </button>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <p>Made with <span class="heart-icon"><i class="fas fa-heart"></i></span> for My Beloved Ayuk</p>
+        <p style="margin-top: 8px; font-size: 0.82rem; opacity: 0.7;">© 2026 — Selamat Ulang Tahun, Ayuk!</p>
+    </footer>
+
+    <!-- ==================== PHOTO MODAL ==================== -->
+    <div class="photo-modal" id="photoModal">
+        <div class="photo-modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Tutup">&times;</button>
+            <img src="" alt="Foto diperbesar" id="modalImage">
+            <div class="photo-modal-caption" id="modalCaption"></div>
+        </div>
+    </div>
+
+    <!-- ==================== CONFETTI LIBRARY ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- ==================== MAIN SCRIPT ==================== -->
+    <script>
+    (function() {
+        'use strict';
+
+        // ============================================
+        // 0. UTILITY: DEBOUNCE
+        // ============================================
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // ============================================
+        // 1. FLOATING DECORATIONS (BALON, BINTANG, BUNGA)
+        // ============================================
+        function createFloatingDecorations() {
+            const container = document.getElementById('floating-container');
+            const emojis = ['🎈', '🎈', '💗', '🌸', '🎀', '⭐', '✨', '💐', '🎀', '💖'];
+            const count = window.innerWidth < 600 ? 12 : 22;
+
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('div');
+                el.className = 'floating-deco balloon';
+                el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                el.style.left = Math.random() * 100 + '%';
+                el.style.animationDelay = (Math.random() * 18) + 's';
+                el.style.animationDuration = (10 + Math.random() * 8) + 's';
+                el.style.fontSize = (1.8 + Math.random() * 1.8) + 'rem';
+                container.appendChild(el);
+            }
+
+            // Sparkle stars
+            const starCount = window.innerWidth < 600 ? 15 : 30;
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'floating-deco sparkle-star';
+                star.textContent = '✦';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = (Math.random() * 5) + 's';
+                star.style.fontSize = (0.7 + Math.random() * 1) + 'rem';
+                container.appendChild(star);
+            }
+        }
+
+        // ============================================
+        // 2. CONFETTI HELPERS
+        // ============================================
+        const CONFETTI_COLORS = ['#ffb6c1', '#ffd700', '#ffe4e1', '#ffffff', '#f8bbd0', '#ff8da1', '#ffecd2'];
+
+        function burstConfetti(opts = {}) {
+            const defaults = {
+                particleCount: 100,
+                spread: 90,
+                origin: { y: 0.6 },
+                colors: CONFETTI_COLORS,
+                disableForReducedMotion: true
+            };
+            confetti(Object.assign({}, defaults, opts));
+        }
+
+        function celebrationBurst() {
+            // Multi-burst meriah
+            const duration = 2500;
+            const end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 70,
+                    origin: { x: 0, y: 0.6 },
+                    colors: CONFETTI_COLORS
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 70,
+                    origin: { x: 1, y: 0.6 },
+                    colors: CONFETTI_COLORS
+                });
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+        }
+
+        // Gentle ambient confetti
+        function startAmbientConfetti() {
+            setInterval(() => {
+                if (document.hidden) return;
+                confetti({
+                    particleCount: 2,
+                    spread: 30,
+                    origin: { x: Math.random(), y: Math.random() * 0.3 },
+                    colors: CONFETTI_COLORS,
+                    startVelocity: 6,
+                    gravity: 0.35,
+                    scalar: 0.55,
+                    drift: 0.3,
+                    ticks: 120,
+                    disableForReducedMotion: true
+                });
+            }, 5000);
+        }
+
+        // ============================================
+        // 3. HERO: CAKE INTERACTION
+        // ============================================
+        const cakeWrapper = document.getElementById('cakeWrapper');
+        const flame = document.getElementById('flame');
+        const surpriseMessage = document.getElementById('surpriseMessage');
+        const openSurpriseBtn = document.getElementById('openSurpriseBtn');
+        let cakeClicked = false;
+
+        function handleCakeClick() {
+            if (cakeClicked) return;
+            cakeClicked = true;
+
+            // Animasi pop
+            cakeWrapper.classList.add('clicked');
+            setTimeout(() => cakeWrapper.classList.remove('clicked'), 600);
+
+            // Matikan lilin (efek tiup)
+            flame.classList.add('off');
+
+            // Confetti meriah
+            celebrationBurst();
+
+            // Tampilkan pesan kejutan
+            setTimeout(() => {
+                surpriseMessage.classList.add('show');
+                surpriseMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 400);
+
+            // Ganti teks tombol
+            openSurpriseBtn.innerHTML = '<i class="fas fa-heart"></i>&nbsp; Lanjut ke Galeri Kenangan';
+        }
+
+        cakeWrapper.addEventListener('click', handleCakeClick);
+        cakeWrapper.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleCakeClick();
+            }
+        });
+
+        // Tombol Buka Kejutan — scroll ke galeri
+        openSurpriseBtn.addEventListener('click', () => {
+            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            burstConfetti({ origin: { y: 0.3 }, particleCount: 80 });
+        });
+
+        // ============================================
+        // 4. SCROLL REVEAL (Intersection Observer)
+        // ============================================
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ============================================
+        // 5. GALERI FOTO: Reveal + Modal
+        // ============================================
+        const photoCards = document.querySelectorAll('.photo-card');
+        const photoModal = document.getElementById('photoModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        const modalClose = document.getElementById('modalClose');
+
+        // Reveal foto satu per satu
+        const photoObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, idx) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, idx * 100);
+                    photoObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        photoCards.forEach(card => photoObserver.observe(card));
+
+        // Buka modal saat foto diklik
+        function openPhotoModal(card) {
+            const img = card.querySelector('img');
+            const caption = card.getAttribute('data-caption') || card.querySelector('.photo-caption').textContent.trim();
+
+            if (img && img.src) {
+                modalImage.src = img.src;
+                modalImage.alt = img.alt || 'Foto kenangan';
+                modalImage.style.display = 'block';
+            } else {
+                modalImage.style.display = 'none';
+            }
+            modalCaption.textContent = caption;
+
+            photoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Confetti kecil
+            burstConfetti({ origin: { y: 0.5 }, particleCount: 40, spread: 60 });
+        }
+
+        photoCards.forEach(card => {
+            card.addEventListener('click', () => openPhotoModal(card));
+        });
+
+        function closePhotoModal() {
+            photoModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closePhotoModal);
+        photoModal.addEventListener('click', (e) => {
+            if (e.target === photoModal) closePhotoModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && photoModal.classList.contains('active')) {
+                closePhotoModal();
+            }
+        });
+
+        // ============================================
+        // 6. MUSIC PLAYER
+        // ============================================
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const muteBtn = document.getElementById('muteBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const albumCover = document.getElementById('albumCover');
+        const visualizer = document.getElementById('visualizer');
+        const audioFileInput = document.getElementById('audioFileInput');
+
+        let isPlaying = false;
+        let audioContext = null;
+        let analyser = null;
+        let sourceNode = null;
+        let animationFrameId = null;
+        let barElements = [];
+        const BAR_COUNT = 20;
+
+        // Set volume awal
+        audioPlayer.volume = 0.7;
+
+        // Buat bar visualizer
+        function createVisualizerBars() {
+            visualizer.innerHTML = '';
+            barElements = [];
+            for (let i = 0; i < BAR_COUNT; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                bar.style.height = '4px';
+                visualizer.appendChild(bar);
+                barElements.push(bar);
+            }
+        }
+        createVisualizerBars();
+
+        // Inisialisasi Web Audio API untuk visualizer
+        function initAudioContext() {
+            if (audioContext) return;
+            try {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                sourceNode = audioContext.createMediaElementSource(audioPlayer);
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 64;
+                analyser.smoothingTimeConstant = 0.75;
+                sourceNode.connect(analyser);
+                analyser.connect(audioContext.destination);
+            } catch (e) {
+                console.warn('Web Audio API tidak tersedia:', e);
+            }
+        }
+
+        // Update visualizer
+        function updateVisualizer() {
+            if (!analyser || !isPlaying) {
+                animationFrameId = requestAnimationFrame(updateVisualizer);
+                return;
+            }
+
+            const dataArray = new Uint8Array(analyser.frequencyBinCount);
+            analyser.getByteFrequencyData(dataArray);
+
+            const step = Math.floor(dataArray.length / BAR_COUNT);
+            for (let i = 0; i < BAR_COUNT; i++) {
+                const value = dataArray[i * step] || 0;
+                const height = Math.max(4, (value / 255) * 36);
+                if (barElements[i]) {
+                    barElements[i].style.height = height + 'px';
+                }
+            }
+
+            animationFrameId = requestAnimationFrame(updateVisualizer);
+        }
+
+        // Play
+        function playAudio() {
+            // Inisialisasi audio context pada interaksi user (diperlukan browser)
+            initAudioContext();
+            if (audioContext && audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+
+            audioPlayer.play().then(() => {
+                isPlaying = true;
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                albumCover.classList.add('playing');
+                visualizer.classList.add('active');
+                if (!animationFrameId) updateVisualizer();
+            }).catch(err => {
+                console.warn('Gagal memutar audio:', err);
+                alert('Tidak dapat memutar lagu. Silakan pilih file MP3 sendiri atau coba lagi.');
+            });
+        }
+
+        // Pause
+        function pauseAudio() {
+            audioPlayer.pause();
+            isPlaying = false;
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            albumCover.classList.remove('playing');
+            visualizer.classList.remove('active');
+        }
+
+        // Toggle
+        playBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                pauseAudio();
+            } else {
+                playAudio();
+            }
+        });
+
+        // Mute / Unmute
+        let previousVolume = 0.7;
+        muteBtn.addEventListener('click', () => {
+            if (audioPlayer.volume > 0) {
+                previousVolume = audioPlayer.volume;
+                audioPlayer.volume = 0;
+                volumeSlider.value = 0;
+                muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                audioPlayer.volume = previousVolume || 0.7;
+                volumeSlider.value = previousVolume * 100;
+                muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+        });
+
+        // Reset / Ulangi
+        resetBtn.addEventListener('click', () => {
+            audioPlayer.currentTime = 0;
+            if (!isPlaying) playAudio();
+        });
+
+        // Volume slider
+        volumeSlider.addEventListener('input', (e) => {
+            const val = e.target.value / 100;
+            audioPlayer.volume = val;
+            if (val === 0) {
+                muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else if (val < 0.5) {
+                muteBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+            } else {
+                muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+        });
+
+        // File upload custom
+        audioFileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (!file.type.startsWith('audio/')) {
+                alert('Silakan pilih file audio (MP3, WAV, dll).');
+                return;
+            }
+
+            const url = URL.createObjectURL(file);
+            audioPlayer.src = url;
+            audioPlayer.load();
+
+            // Reset state
+            isPlaying = false;
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            albumCover.classList.remove('playing');
+            visualizer.classList.remove('active');
+
+            // Update label
+            const label = document.querySelector('.file-upload-label');
+            label.innerHTML = '<i class="fas fa-check-circle"></i> ' + file.name.substring(0, 25) + (file.name.length > 25 ? '...' : '');
+
+            // Mainkan otomatis setelah upload
+            setTimeout(playAudio, 300);
+        });
+
+        // Handle error audio
+        audioPlayer.addEventListener('error', () => {
+            console.warn('Audio error. Menggunakan sumber default mungkin tidak tersedia.');
+        });
+
+        // ============================================
+        // 7. WISHES: Animated text reveal on scroll
+        // ============================================
+        const wishParagraphs = document.querySelectorAll('#wishText p');
+        const wishSignature = document.getElementById('wishSignature');
+        const wishBox = document.querySelector('.wish-box');
+
+        const wishObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    wishParagraphs.forEach((p, i) => {
+                        setTimeout(() => {
+                            p.classList.add('revealed');
+                        }, i * 300);
+                    });
+                    setTimeout(() => {
+                        wishSignature.classList.add('revealed');
+                    }, wishParagraphs.length * 300 + 200);
+                    wishObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        if (wishBox) wishObserver.observe(wishBox);
+
+        // ============================================
+        // 8. PENUTUP: Fireworks + Hearts
+        // ============================================
+        const closingSection = document.getElementById('closing');
+        const fireworksContainer = document.getElementById('fireworksContainer');
+        const replayBtn = document.getElementById('replayBtn');
+        let closingAnimated = false;
+
+        function spawnHearts() {
+            const heartEmojis = ['💖', '💗', '💕', '💝', '🌸', '✨'];
+            const count = 25;
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'firework-heart';
+                    heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+                    heart.style.left = (10 + Math.random() * 80) + '%';
+                    heart.style.top = (30 + Math.random() * 60) + '%';
+                    heart.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
+                    heart.style.animationDuration = (2 + Math.random() * 2) + 's';
+                    heart.style.animationDelay = (Math.random() * 0.5) + 's';
+                    fireworksContainer.appendChild(heart);
+
+                    setTimeout(() => heart.remove(), 4000);
+                }, i * 80);
+            }
+        }
+
+        function runClosingCelebration() {
+            // Confetti dari berbagai arah
+            const end = Date.now() + 4000;
+
+            (function frame() {
+                confetti({
+                    particleCount: 6,
+                    angle: 60,
+                    spread: 80,
+                    origin: { x: 0, y: 0.7 },
+                    colors: CONFETTI_COLORS
+                });
+                confetti({
+                    particleCount: 6,
+                    angle: 120,
+                    spread: 80,
+                    origin: { x: 1, y: 0.7 },
+                    colors: CONFETTI_COLORS
+                });
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+
+            // Hati mengambang
+            spawnHearts();
+
+            // Extra burst
+            setTimeout(() => {
+                burstConfetti({ particleCount: 150, spread: 120, origin: { y: 0.5 } });
+            }, 500);
+            setTimeout(() => {
+                burstConfetti({ particleCount: 100, spread: 100, origin: { x: 0.3, y: 0.6 } });
+            }, 1200);
+            setTimeout(() => {
+                burstConfetti({ particleCount: 100, spread: 100, origin: { x: 0.7, y: 0.6 } });
+            }, 1800);
+        }
+
+        const closingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !closingAnimated) {
+                    closingAnimated = true;
+                    setTimeout(runClosingCelebration, 600);
+                }
+            });
+        }, {
+            threshold: 0.4
+        });
+
+        if (closingSection) closingObserver.observe(closingSection);
+
+        // Replay button
+        replayBtn.addEventListener('click', () => {
+            closingAnimated = true;
+            runClosingCelebration();
+
+            // Scroll ke atas halus setelah animasi
+            setTimeout(() => {
+                document.getElementById('hero').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 2200);
+
+            // Reset cake state after scrolling back
+            setTimeout(() => {
+                cakeClicked = false;
+                flame.classList.remove('off');
+                surpriseMessage.classList.remove('show');
+                openSurpriseBtn.innerHTML = '<i class="fas fa-gift"></i>&nbsp; Buka Kejutan';
+            }, 2800);
+        });
+
+        // ============================================
+        // 9. INIT ON LOAD
+        // ============================================
+        function init() {
+            createFloatingDecorations();
+
+            // Confetti pembuka
+            setTimeout(() => {
+                burstConfetti({
+                    particleCount: 120,
+                    spread: 110,
+                    origin: { y: 0.4 },
+                    startVelocity: 35
+                });
+            }, 800);
+
+            // Ambient confetti ringan
+            startAmbientConfetti();
+
+            // Resume AudioContext pada interaksi pertama (best practice)
+            document.addEventListener('click', function resumeAudio() {
+                if (audioContext && audioContext.state === 'suspended') {
+                    audioContext.resume();
+                }
+            }, { once: true });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        // ============================================
+        // 10. CLEANUP (page visibility)
+        // ============================================
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && isPlaying) {
+                // Biarkan musik tetap berjalan? Atau pause?
+                // Kita biarkan berjalan agar user tetap bisa mendengar.
+            }
+        });
+
+    })();
+    </script>
+</body>
+</html>
